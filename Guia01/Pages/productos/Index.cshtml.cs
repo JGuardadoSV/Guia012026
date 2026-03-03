@@ -22,8 +22,24 @@ namespace Guia01.Pages.productos
 
         public async Task OnGetAsync()
         {
+            // consulta select * from productos
+            //Producto = await _context.Productos
+            //    .Include(p => p.Categoria).ToListAsync();
+
+            //productos que tenga existencias
+
+            // consulta de todos los productos que tenga stock mayor a 0
             Producto = await _context.Productos
-                .Include(p => p.Categoria).ToListAsync();
+               .Include(p => p.Categoria)
+               .Where(p=>p.Stock>0)
+               .ToListAsync();
+
+            // consulta de todos los productos que tenga stock mayor a 0 y que sean
+            // de 
+            Producto = await _context.Productos
+              .Include(p => p.Categoria)
+              .Where(p => p.Stock > 0 && p.Categoria.Nombre.Contains("Electrónica"))
+              .ToListAsync();
         }
     }
 }
