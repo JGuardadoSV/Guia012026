@@ -22,6 +22,7 @@ namespace Guia01.Pages.categorias
 
         public async Task OnGetAsync()
         {
+
             Categoria = await _context.Categorias.ToListAsync();
         }
     }

@@ -10,14 +10,14 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<form class="row g-3">
+<form class="row g-3" method="post">
     <div class="col-auto">
         <label for="staticEmail2" class="visually-hidden">Email</label>
         <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="FILTRO">
     </div>
     <div class="col-auto">
         <label for="inputPassword2" class="visually-hidden">Password</label>
-        <input type="text" class="form-control" id="inputPassword2" placeholder="Password">
+        <input type="text" name="busqueda" value="@Model.busqueda" class="form-control" id="inputPassword2">
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Buscar</button>
